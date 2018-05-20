@@ -52,19 +52,20 @@ function doSays() {
         console.log(theArray);
         spotify.search({
                 type: 'track',
-                query: theArray[1] || "All the Small Things",
+                query: theArray[1],
                 limit: 5
             },
             function (err, data) {
                 if (err) {
                     return console.log('Error occurred: ' + err);
+                } else {
+                    var datainc = data.tracks.items[0]
+                    console.log("---------------------------------------------------")
+                    console.log("Artist: " + datainc.album.artists[0].name);
+                    console.log("Song Name: " + datainc.name);
+                    console.log("Preview Link: " + datainc.album.preview_url);
+                    console.log("Album Name: " + datainc.album.name);
                 }
-                var datainc = data.tracks.items[0]
-                console.log("---------------------------------------------------")
-                console.log("Artist: " + datainc.album.artists[0].name);
-                console.log("Song Name: " + datainc.name);
-                console.log("Preview Link: " + datainc.album.preview_url);
-                console.log("Album Name: " + datainc.album.name);
             }
         )
     })
@@ -73,47 +74,50 @@ function doSays() {
 function song(searchsong) {
     spotify.search({
         type: 'track',
-        query: searchsong,
-        function (err, data) {
-            if (err) {
-                return console.log('Error occurred: ' + err);
-            }
-            var datainc = data.tracks.items[0]
-            console.log("---------------------------------------------------")
-            console.log("Artist: " + datainc.album.artists[0].name);
-            console.log("Song Name: " + datainc.name);
-            console.log("Preview Link: " + datainc.album.preview_url);
-            console.log("Album Name: " + datainc.album.name);
+        query: searchsong
+    }, function (err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
         }
-    })
-}
+        var datainc = data.tracks.items[0]
+        console.log("---------------------------------------------------");
+        console.log("Artist: " + datainc.album.artists[0].name);
+        console.log("Song Name: " + datainc.name);
+        console.log("Preview Link: " + datainc.album.preview_url);
+        console.log("Album Name: " + datainc.album.name);
+    });
+};
 
 
 //OMDB Function 
 function omdbMovie(movieEntered) {
+    var divider =
+        "\n------------------------------------------------------------\n\n";
 
     var queryURL = "http://www.omdbapi.com/?t=" + movieEntered + "&y=&plot=short&apikey=trilogy"
     // Run a request to the OMDB API with the movie specified
     request(queryURL, function (error, response, body) {
 
-        // If the request is successful (i.e. if the response status code is 200)
-        if (!error && response.statusCode === 200) {
+            // If the request is successful (i.e. if the response status code is 200)
+            if (!error && response.statusCode === 200) {
 
-            var movieBody = JSON.parse(body);
-            // Parse the body of the site and recover 
-            console.log("Title of the movie: " + movieBody.Title);
-            console.log("Year the movie came out: " + movieBody.Year);
-            console.log("IMDB Rating of the movie: " + movieBody.imdbRating);
-            console.log("Rotten Tomatoes Rating of the movie: " + movieBody.Ratings[1].Value);
-            console.log("Country where the movie was produced: " + movieBody.Country);
-            console.log("Language of the movie: " + movieBody.Language);
-            console.log("Plot of the movie: " + movieBody.Plot);
-            console.log("Actors in the movie: " + movieBody.Actors);
-        }
+                var movieBody = JSON.parse(body);
+                // Parse the body of the site and recover 
+                var movieData = [
+                    "Title of the movie: " + movieBody.Title,
+                    "Year the movie came out: " + movieBody.Year,
+                    "IMDB Rating of the movie: " + movieBody.imdbRating,
+                    "Rotten Tomatoes Rating of the movie: " + movieBody.Ratings[1].value,
+                    "Country where the movie was produced: " + movieBody.Country,
+                    "Language of the movie: " + movieBody.Language,
+                    "Plot of the movie: " + movieBody.Plot,
+                    "Actors in the movie: " + movieBody.Actors,
+                ].join("\n\n");
+                //     // Append showData and the divider to log.txt, print data to the console
+                fs.appendFile('log.txt', movieData + divider, function (err) {
+                    if (err) throw err;
+                    console.log(movieData);
+                });
+            };
     });
-      //     // Append showData and the divider to log.txt, print showData to the console
-      fs.appendFile("log.txt",  + divider,  function(err) {
-        if (err) throw err;
-        console.log();
-      });
-}
+};
