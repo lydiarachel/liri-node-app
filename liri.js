@@ -107,7 +107,7 @@ function omdbMovie(movieEntered) {
                     "Title of the movie: " + movieBody.Title,
                     "Year the movie came out: " + movieBody.Year,
                     "IMDB Rating of the movie: " + movieBody.imdbRating,
-                    "Rotten Tomatoes Rating of the movie: " + movieBody.Ratings[1].value,
+                    "Rotten Tomatoes Rating of the movie: " + movieBody.Ratings[0].value,
                     "Country where the movie was produced: " + movieBody.Country,
                     "Language of the movie: " + movieBody.Language,
                     "Plot of the movie: " + movieBody.Plot,

@@ -83,3 +83,54 @@ Plot of the movie: When her father unexpectedly passes away, young Ella finds he
 Actors in the movie: Cate Blanchett, Lily James, Richard Madden, Helena Bonham Carter
 ------------------------------------------------------------
 
+Title of the movie: Cinderella
+
+Year the movie came out: 2015
+
+IMDB Rating of the movie: 6.9
+
+Rotten Tomatoes Rating of the movie: undefined
+
+Country where the movie was produced: USA, UK
+
+Language of the movie: English
+
+Plot of the movie: When her father unexpectedly passes away, young Ella finds herself at the mercy of her cruel stepmother and her scheming step-sisters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger.
+
+Actors in the movie: Cate Blanchett, Lily James, Richard Madden, Helena Bonham Carter
+------------------------------------------------------------
+
+Title of the movie: Star
+
+Year the movie came out: 2001
+
+IMDB Rating of the movie: 7.8
+
+Rotten Tomatoes Rating of the movie: undefined
+
+Country where the movie was produced: USA
+
+Language of the movie: English
+
+Plot of the movie: The Driver now carries an arrogant rock star who is visiting a major city (not Pittsburgh as earlier believed). Played by Madonna, this title character wants to get away from her bodyguards...
+
+Actors in the movie: Clive Owen, Michael Beattie, Toru Tanaka Jr., DTeflon
+------------------------------------------------------------
+
+Title of the movie: Star Wars: Episode IV - A New Hope
+
+Year the movie came out: 1977
+
+IMDB Rating of the movie: 8.6
+
+Rotten Tomatoes Rating of the movie: undefined
+
+Country where the movie was produced: USA
+
+Language of the movie: English
+
+Plot of the movie: Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader.
+
+Actors in the movie: Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing
+------------------------------------------------------------
+
