@@ -6,7 +6,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 This will show your last 20 tweets and when they were created at in your terminal/bash window.
 ![Twitter Pic](/images/twitter.png)
 
-**node liri.js spotify-this-song '<song name here>'**
+**node liri.js spotify-this-song `'<song name here>'`**
 
 This will show the following information about the song in your terminal/bash window
 
@@ -19,7 +19,7 @@ This will show the following information about the song in your terminal/bash wi
 If no song is provided then your program will default to "The Sign" by Ace of Base.
 ![Spotify Pic](/images/Spotify.png)
 
-**node liri.js movie-this '<movie name here>'**
+**node liri.js movie-this `'<movie name here>'`**
 This will output the following information to your terminal/bash window:
 
    * Title of the movie.
