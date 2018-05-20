@@ -14,6 +14,10 @@ var client = new Twitter(keys.twitter);
 var commandEntered = process.argv[2];
 var songMovie = process.argv[3];
 
+// divider will be used as a spacer between the tv data we print in log.txt
+var divider =
+    "\n------------------------------------------------------------\n\n";
+
 if (commandEntered === 'my-tweets') {
     tweets();
 } else if (commandEntered === `spotify-this-song`) {
@@ -26,11 +30,11 @@ if (commandEntered === 'my-tweets') {
 
 //Twitter Function 
 function tweets() {
-    if(songMovie == undefined){
+    if (songMovie == undefined) {
         songMovie = "chipotle"
     }
     var params = {
-        screen_name: songMovie 
+        screen_name: songMovie
     };
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
         if (!error) {
@@ -42,28 +46,46 @@ function tweets() {
     });
 }
 //Do what It Says
-function doSays(){
-    fs.readFile("random.txt","utf8",function(err,data){
-        console.log(data)
-        var newsong=data.split(',');
-        console.log
-    song(newsong[1]);
+function doSays() {
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        var theArray = data.split(',');
+        console.log(theArray);
+        spotify.search({
+                type: 'track',
+                query: theArray[1] || "All the Small Things",
+                limit: 5
+            },
+            function (err, data) {
+                if (err) {
+                    return console.log('Error occurred: ' + err);
+                }
+                var datainc = data.tracks.items[0]
+                console.log("---------------------------------------------------")
+                console.log("Artist: " + datainc.album.artists[0].name);
+                console.log("Song Name: " + datainc.name);
+                console.log("Preview Link: " + datainc.album.preview_url);
+                console.log("Album Name: " + datainc.album.name);
+            }
+        )
     })
-    }
+}
 //Spotify Function 
-function song(searchsong){
-    spotify.search({ type: 'track', query: searchsong, function(err, data) {
-        if (err) {
-          return console.log('Error occurred: ' + err);
+function song(searchsong) {
+    spotify.search({
+        type: 'track',
+        query: searchsong,
+        function (err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }
+            var datainc = data.tracks.items[0]
+            console.log("---------------------------------------------------")
+            console.log("Artist: " + datainc.album.artists[0].name);
+            console.log("Song Name: " + datainc.name);
+            console.log("Preview Link: " + datainc.album.preview_url);
+            console.log("Album Name: " + datainc.album.name);
         }
-       var datainc=data.tracks.items[0]
-       console.log("---------------------------------------------------")
-      console.log("Artist: " + datainc.album.artists[0].name);
-      console.log("Song Name: " + datainc.name);
-      console.log("Preview Link: " + datainc.album.preview_url);
-      console.log("Album Name: " + datainc.album.name);
-    }
-      })
+    })
 }
 
 
@@ -89,4 +111,9 @@ function omdbMovie(movieEntered) {
             console.log("Actors in the movie: " + movieBody.Actors);
         }
     });
+      //     // Append showData and the divider to log.txt, print showData to the console
+      fs.appendFile("log.txt",  + divider,  function(err) {
+        if (err) throw err;
+        console.log();
+      });
 }
