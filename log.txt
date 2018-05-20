@@ -66,3 +66,20 @@ Plot of the movie: When her father unexpectedly passes away, young Ella finds he
 Actors in the movie: Cate Blanchett, Lily James, Richard Madden, Helena Bonham Carter
 ------------------------------------------------------------
 
+Title of the movie: Cinderella
+
+Year the movie came out: 2015
+
+IMDB Rating of the movie: 6.9
+
+Rotten Tomatoes Rating of the movie: undefined
+
+Country where the movie was produced: USA, UK
+
+Language of the movie: English
+
+Plot of the movie: When her father unexpectedly passes away, young Ella finds herself at the mercy of her cruel stepmother and her scheming step-sisters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger.
+
+Actors in the movie: Cate Blanchett, Lily James, Richard Madden, Helena Bonham Carter
+------------------------------------------------------------
+
